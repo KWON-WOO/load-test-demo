@@ -15,10 +15,7 @@ public class AdminOrderService {
     private final AdminOrderQueryRepository queryRepository;
 
     @Transactional(readOnly = true)
-    public List<AdminOrderSummaryDto> getSummary(
-        LocalDateTime from,
-        LocalDateTime to
-    ) {
-        return queryRepository.findSummary(from, to);
+    public List<AdminOrderSummaryDto> getSummary() {
+        return queryRepository.findSummary();
     }
 }

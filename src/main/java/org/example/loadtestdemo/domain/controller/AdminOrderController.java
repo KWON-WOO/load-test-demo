@@ -18,10 +18,7 @@ public class AdminOrderController {
     private final AdminOrderService service;
 
     @GetMapping("/summary")
-    public List<AdminOrderSummaryDto> summary(
-        @RequestParam LocalDateTime from,
-        @RequestParam LocalDateTime to
-    ) {
-        return service.getSummary(from, to);
+    public List<AdminOrderSummaryDto> summary() {
+        return service.getSummary();
     }
 }

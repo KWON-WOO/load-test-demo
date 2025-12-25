@@ -18,10 +18,7 @@ public class AdminOrderQueryRepository {
 
     private final JPAQueryFactory queryFactory;
 
-    public List<AdminOrderSummaryDto> findSummary(
-        LocalDateTime from,
-        LocalDateTime to
-    ) {
+    public List<AdminOrderSummaryDto> findSummary() {
 
         return queryFactory
             .select(Projections.constructor(
@@ -35,7 +32,6 @@ public class AdminOrderQueryRepository {
             .join(user).on(order.userId.eq(user.id))
             .join(orderItem).on(orderItem.orderId.eq(order.id))
             .where(
-                order.orderedAt.between(from, to),
                 order.status.eq("ORDERED")
             )
             .groupBy(
