@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { sleep } from 'k6';
 
 export const options = {
-  vus: 30,            // 동시 사용자 수
+  vus: 10,            // 동시 사용자 수
   duration: '30s',    // 테스트 시간
 };
 
